@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LKPD: Manajemen Server VPS AWS</title>
+    <style>
+        /* Reset dan Pengaturan Dasar Halaman */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #f0f2f5;
+            color: #1f2937;
+            line-height: 1.5;
+            padding: 20px;
+        }
+
+        /* Kontainer Utama Kertas LKPD */
+        .lkpd-container {
+            max-width: 850px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 40px 50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Judul Utama */
+        .header-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #111827;
+            padding-bottom: 12px;
+            border-bottom: 4px solid #f59e0b; /* Garis Oranye khas AWS */
+            margin-bottom: 20px;
+        }
+
+        /* Kotak Identitas Siswa */
+        .identity-box {
+            background-color: #f8fafc;
+            border: 1px solid #cbd5e1;
+            border-left: 5px solid #334155;
+            padding: 18px 22px;
+            margin-bottom: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+        }
+
+        .identity-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .identity-row {
+            display: flex;
+            align-items: baseline;
+            font-size: 14px;
+            font-weight: bold;
+            color: #1e293b;
+        }
+
+        .identity-label {
+            width: 85px;
+            flex-shrink: 0;
+        }
+
+        .identity-input {
+            flex-grow: 1;
+            border-bottom: 1px dashed #94a3b8;
+            padding-bottom: 3px;
+            font-weight: normal;
+            color: #334155;
+            min-height: 22px;
+        }
+
+        /* Judul Bagian / Fase */
+        .phase-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #d97706; /* Warna oranye gelap */
+            margin-bottom: 8px;
+        }
+
+        .phase-instruction {
+            font-size: 14px;
+            color: #374151;
+            margin-bottom: 20px;
+        }
+
+        /* Grid 2 Kolom untuk Kotak Jawaban */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 35px;
+        }
+
+        /* Kartu Jawaban */
+        .answer-card {
+            border: 1px solid #d1d5db;
+            border-top: 4px solid #1e293b; /* Garis tebal hitam/navy di atas */
+            border-radius: 4px;
+            padding: 16px 18px;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: bold;
+            color: #111827;
+            margin-bottom: 10px;
+        }
+
+        .card-content {
+            font-size: 13.5px;
+            color: #374151;
+            text-align: justify;
+            line-height: 1.6;
+            /* Efek garis buku tulis tipis di bawah teks */
+            background-image: linear-gradient(to bottom, transparent 95%, #e5e7eb 95%);
+            background-size: 100% 22px;
+            padding-bottom: 6px;
+        }
+
+        /* Bagian Fase 2 (Preview bagian bawah gambar) */
+        .checklist-preview {
+            border: 1px dashed #cbd5e1;
+            background-color: #f9fafb;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 13.5px;
+            color: #4b5563;
+        }
+
+        /* Responsif untuk Layar HP / Tablet */
+        @media (max-width: 650px) {
+            .lkpd-container {
+                padding: 25px 20px;
+            }
+            .identity-box,
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Kontainer Utama Lembar Kerja -->
+    <div class="lkpd-container">
+        
+        <!-- Header Judul -->
+        <h1 class="header-title">LKPD: Manajemen Server VPS AWS</h1>
+
+        <!-- Kotak Biodata -->
+        <div class="identity-box">
+            <div class="identity-item">
+                <div class="identity-row">
+                    <span class="identity-label">Nama</span>
+                    <span>:&nbsp;</span>
+                    <span class="identity-input">Alifa Zallfa Nafisa</span>
+                </div>
+            </div>
+            <div class="identity-item">
+                <div class="identity-row">
+                    <span class="identity-label">Tanggal</span>
+                    <span>:&nbsp;</span>
+                    <span class="identity-input">12 November 2026</span>
+                </div>
+            </div>
+            <div class="identity-item">
+                <div class="identity-row">
+                    <span class="identity-label">Kelas</span>
+                    <span>:&nbsp;</span>
+                    <span class="identity-input">XI RPL 2</span>
+                </div>
+            </div>
+            <div class="identity-item">
+                <div class="identity-row">
+                    <span class="identity-label">Instruktur</span>
+                    <span>:&nbsp;</span>
+                    <span class="identity-input">Pak Asep Ulumudin</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fase 1: Pengenalan Konsep VPS & Cloud -->
+        <section>
+            <h2 class="phase-title">Fase 1: Pengenalan Konsep VPS &amp; Cloud</h2>
+            <p class="phase-instruction">
+                Jelaskan secara singkat pemahaman Anda mengenai perbedaan layanan berikut dengan mengisi kotak yang tersedia.
+            </p>
+
+            <!-- Grid 4 Kotak Jawaban -->
+            <div class="cards-grid">
+                
+                <!-- Kotak 1: Shared Hosting -->
+                <div class="answer-card">
+                    <h3 class="card-title">Shared Hosting</h3>
+                    <p class="card-content">
+                        Layanan hosting di mana satu server fisik digunakan secara bersama-sama oleh banyak pengguna. Sumber daya (CPU, RAM, disk) dibagi rata sehingga biayanya sangat murah, namun performa dan kontrol akses (root) terbatas.
+                    </p>
+                </div>
+
+                <!-- Kotak 2: Dedicated Server -->
+                <div class="answer-card">
+                    <h3 class="card-title">Dedicated Server</h3>
+                    <p class="card-content">
+                        Layanan penyewaan satu server fisik secara penuh khusus untuk satu pengguna saja. Memberikan performa maksimal, keamanan tinggi, serta kendali penuh (full root access), namun memerlukan biaya yang mahal.
+                    </p>
+                </div>
+
+                <!-- Kotak 3: Amazon Lightsail -->
+                <div class="answer-card">
+                    <h3 class="card-title">Amazon Lightsail</h3>
+                    <p class="card-content">
+                        Layanan VPS (Virtual Private Server) dari AWS yang dirancang praktis dan mudah digunakan dengan paket harga bulanan tetap. Cocok untuk pemula, website skala kecil-menengah, dan aplikasi sederhana.
+                    </p>
+                </div>
+
+                <!-- Kotak 4: Amazon EC2 -->
+                <div class="answer-card">
+                    <h3 class="card-title">Amazon EC2</h3>
+                    <p class="card-content">
+                        Layanan komputasi cloud (IaaS) tingkat lanjut dari AWS yang sangat fleksibel dan skalabel. Pengguna bebas mengonfigurasi spesifikasi hardware, jaringan (VPC), dan keamanan dengan sistem bayar sesuai pemakaian.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Fase 2 (Sesuai bagian bawah pada gambar) -->
+        <section>
+            <h2 class="phase-title">Fase 2: Persiapan dan Provisioning Server</h2>
+            <p class="phase-instruction">
+                Beri tanda centang pada kotak setelah Anda berhasil menyelesaikan setiap tahapan di konsol AWS.
+            </p>
+            <div class="checklist-preview">
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
